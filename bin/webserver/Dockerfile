@@ -62,5 +62,9 @@ libpng-dev && \
 # Enable apache modules
 RUN a2enmod rewrite headers
 
+# Install our site code
+WORKDIR /var/www/shop
+RUN composer install
+
 # Cleanup
 RUN rm -rf /usr/src/*
