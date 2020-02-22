@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  webserver:
+  shopserver:
     build: 
-      context: ./bin/webserver
-    container_name: 'server'
+      context: ./bin/shopserver
+    container_name: 'shopserver'
     restart: 'always'
     ports:
       - "${HOST_MACHINE_UNSECURE_HOST_PORT}:80"

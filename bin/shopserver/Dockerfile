@@ -31,13 +31,11 @@ libonig-dev && \
 libcurl4-openssl-dev \
 zip \
 openssl && \
-    rm -rf /var/lib/apt/lists/* && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    rm -rf /var/lib/apt/lists/*
 
 # Install xdebug
 RUN pecl install xdebug-2.8.0 && \
     docker-php-ext-enable xdebug
-
 
 # Other PHP7 Extensions
 RUN docker-php-ext-install pdo_mysql && \
@@ -62,9 +60,11 @@ libpng-dev && \
 # Enable apache modules
 RUN a2enmod rewrite headers
 
-# Install our site code
-WORKDIR /var/www/shop
-RUN composer install
+RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
+    && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
+    && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
+    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot \
+    && rm -f /tmp/composer-setup.*
 
 # Cleanup
 RUN rm -rf /usr/src/*
