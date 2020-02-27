@@ -1,5 +1,5 @@
 # A table to hold the product types
-create table product_types (
+create table product_type (
 	id int(11) unsigned not null auto_increment primary key,
 	name varchar(255) not null unique,
 	description text,
