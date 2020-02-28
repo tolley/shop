@@ -1,6 +1,17 @@
 version: "3"
 
 services:
+  shopfront:
+    build:
+      context: ./bin/shopfront
+    container_name: 'shopfront'
+    restart: 'always'
+    ports:
+      - "${SHOP_FRONT_PORT}:3000"
+    volumes:
+      - ${SHOP_FRONT-.}:/var/www/shop/src
+    working_dir: /var/www/shop/src
+    command: npm start
   shopserver:
     build: 
       context: ./bin/shopserver
