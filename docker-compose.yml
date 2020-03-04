@@ -10,6 +10,7 @@ services:
       - "${SHOP_FRONT_PORT}:3000"
     volumes:
       - ${SHOP_FRONT-.}:/var/www/shop/src
+      - ${SHOP_MOCK-.}:/var/www/shop/mock
     working_dir: /var/www/shop/src
     command: npm start
   shopserver:

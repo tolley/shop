@@ -5,3 +5,4 @@
 /logs/*
 /www/**
 /vendor/*
+/node_modules/*
