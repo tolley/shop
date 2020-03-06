@@ -9,42 +9,103 @@
         <script src="./js/bootstrap.js"></script>
         <link type="text/css" rel="stylesheet" href="./css/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="./css/styles.css">
+        <link type="text/css" rel="stylesheet" href="./css/font-awesome.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Retro Tech Shop</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Categories
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Telegraphs</a>
+                    <a class="dropdown-item" href="#">Pagers</a>
+                    <a class="dropdown-item" href="#">Dialup Modems</a>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
+
+          <div class="fa fa-shopping-cart flip-horizontal" id="minicart">
+          </div>
+			
+          <div>
+              <span>
+                <b>0</b> item(s)
+              </span>
+              <span class="cartprice">
+                $0.00
+              </span>
+            </div>		
+          </div>
+        </nav>
+
+        <div class="container carouselContainer">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="buttonContainer">
+                  <button class="btn btn-primary">Buy Now</button>
+                  <button class="btn btn-success">Add to Cart</button>
+                </div>
+                <img class="d-block w-100 h-90 h-100" src="images/modem.jpg" alt="Telephone modem">
+                <br />
+                <span>A classic 56k modem, best of the best. Compatible with any standard phone line, 
+                  uses a standard RJ11 outlet. Long distance rates may apply.
+                </span>
+                <br />
+                <a href="javascript:null">Details</a>
+              </div>
+              <div class="carousel-item">
+                <div class="buttonContainer">
+                  <button class="btn btn-primary">Buy Now</button>
+                  <button class="btn btn-success">Add to Cart</button>
+                </div>
+                <br />
+                <img class="d-block w-100 h-90 h-100" src="images/pager.png" alt="Alpha Pager">
+                <br />
+                <span>Have anyone send you a quick text message on this device, an alpha pager. 
+                  You'll can call them from any phone line, long distance rates may apply</span>
+              </div>
+              <div class="carousel-item">
+                <div class="buttonContainer">
+                  <button class="btn btn-primary">Buy Now</button>
+                  <button class="btn btn-success">Add to Cart</button>
+                </div>
+                <img class="d-block w-100 h-90 h-100" src="images/telegraph.jpg" alt="Telegraph">
+                <br />
+                <span>OG communications device. These are hard to come by these days but morse
+                  code is still in use, mainly by the HAM radio community.</span>
+              </div>
             </div>
-          </nav>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="container introContainer">
+          <p>
+            Welcome to the retro shop, a fake shop that "sells" outdated technology. Have a look around, see how
+            many of these devices you've used or maybe still own :)
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet erat sit amet dolor euismod tincidunt. Nam nec pulvinar velit. Nullam vel hendrerit magna. Fusce volutpat nunc blandit, egestas nisi et, luctus ligula. Cras tempus sodales mi dictum pellentesque. Etiam vel semper velit, eget ultrices ex. Fusce a auctor orci. Curabitur varius magna urna, eu accumsan purus tincidunt id. Cras semper non sapien non mollis. Aenean molestie lacus ac mauris congue blandit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent pulvinar, tellus et euismod sollicitudin, urna felis imperdiet velit, vestibulum faucibus justo mi ut neque. Quisque accumsan dui vel eleifend condimentum. Pellentesque cursus orci leo, id gravida magna pulvinar sit amet. Nam cursus diam eros, id sagittis felis aliquet quis. Mauris dictum nisl id pretium volutpat.
+          </p>
+          <p>
+            Duis fringilla hendrerit velit at blandit. In hac habitasse platea dictumst. Donec sem turpis, dignissim quis cursus non, cursus at leo. Maecenas vestibulum fermentum risus eu mattis. In egestas mollis dolor vitae pulvinar. Curabitur sit amet feugiat massa. Mauris vel congue arcu. Duis gravida lacus ac pharetra dapibus. Cras porttitor ullamcorper urna, ac luctus est bibendum ac. Nulla facilisi. Morbi et mattis est. Quisque semper, dolor vel faucibus eleifend, mi erat vehicula quam, in eleifend libero neque euismod purus.
+          </p>
+        </div>
     </body>
 </html>
