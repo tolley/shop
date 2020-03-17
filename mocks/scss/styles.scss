@@ -1,3 +1,21 @@
+@media(max-width: 480px) {
+	.mobile_only {
+		display: block !important;
+	}
+	.mobile_hide {
+		display: none !important;
+	}
+}
+
+@media(min-width: 481px) {
+	.mobile_only {
+		display: none !important;
+	}
+	.mobile_hide {
+		display: block !important;
+	}
+}
+
 // Variables
 $background-green: #488f9b;
 // End variables
@@ -6,7 +24,7 @@ body {
     background-color: #FFF;
 }
 
-nav.navbar {
+header.navbar {
     background-color: $background-green;
     color: #3b30b4;
     font-weight: bold;
