@@ -1,10 +1,10 @@
-export const TEST_ACTION = 'TEST_ACTION';
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
 
 export interface TestAction {
-    type: typeof TEST_ACTION
-    payload: string
-};
+    type: string,
+}
 
 export interface TestState {
-    name: string
+    count: number
 };
