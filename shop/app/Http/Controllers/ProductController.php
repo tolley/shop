@@ -43,6 +43,9 @@ class ProductController extends Controller
             ->createData(new Collection($products, new ProductTransformer))
             ->toArray();
 
+        // Send a header for testing
+        header('Access-Control-Allow-Origin: *');
+
         return $transformedData;
     }
 

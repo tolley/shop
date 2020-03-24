@@ -48,7 +48,10 @@ class ProductTypeController extends Controller
         $transformedData = $this->fractal
             ->createData(new Collection($productTypes, new ProductTypeTransformer))
             ->toArray();
-
+        
+        // Send a header for testing
+        header('Access-Control-Allow-Origin: *');
+        
         return $transformedData;
     }
 

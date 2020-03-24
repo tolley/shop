@@ -8,14 +8,21 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.28",
-    "@types/react": "^16.9.23",
+    "@types/node-fetch": "^2.5.5",
+    "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.7",
+    "@types/whatwg-fetch": "0.0.33",
+    "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
-    "typescript": "^3.7.5"
+    "redux": "^4.0.5",
+    "typescript": "^3.7.5",
+    "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-devtools": "^4.5.0"
   }
 }
