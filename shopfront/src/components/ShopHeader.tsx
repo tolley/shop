@@ -1,7 +1,8 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import React, { Component } from 'react';
-import { ShopHeaderState, ShopHeaderProps, ShopHeaderAction } from '../types';
+import { ShopHeaderState, ShopHeaderProps, ShopHeaderAction, ProductType } from '../types';
 import store from '../store';
+import { addProductTypes } from '../reducers';
 import fetch from 'node-fetch';
 
 export default class ShopHeader 
@@ -13,7 +14,7 @@ export default class ShopHeader
       // Default state
       this.state = {
          count: 0,
-         links: []
+         prodTypes: []
       };
 
       let storeState = store.getState();
@@ -22,7 +23,7 @@ export default class ShopHeader
       store.subscribe(() => {
          this.setState({
             count: storeState.count,
-            links: storeState.links
+            prodTypes: storeState.prodTypes
          });
       });
    }
@@ -31,8 +32,7 @@ export default class ShopHeader
       // Test call to the product types end point
       fetch('http://shopv2.com/api/producttype')
          .then( res => res.json() )
-         .then( json => console.log(json));
-      
+         .then( json => store.dispatch(addProductTypes(json.data)));
    }
 
    render() {
@@ -42,11 +42,11 @@ export default class ShopHeader
                <Navbar.Brand href="#home">Retro Shop</Navbar.Brand>
                <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                     {this.state.links.map( (url, i) => 
-                        <Nav.Link key={i} href={"#/"+url.toString().toLowerCase()}>
-                           {url}
+                     {this.state.prodTypes.map( (pt, i) => (
+                        <Nav.Link key={i} href={"#/"+pt.name.toLowerCase()}>
+                           {pt.name}
                         </Nav.Link>
-                     )}
+                      ) ) }
                   </Nav>
                </Navbar.Collapse>
 
@@ -64,8 +64,8 @@ export default class ShopHeader
          this.setState({count: state.count});
       }
 
-      if( this.state.links ) {
-         this.setState({links: state.links});
+      if( this.state.prodTypes ) {
+         this.setState({prodTypes: state.prodTypes});
       }
    }
 }

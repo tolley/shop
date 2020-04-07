@@ -1,6 +1,6 @@
 export interface ShopHeaderState {
     count: number,
-    links: Array<{url: string}>
+    prodTypes: Array<ProductType>
  };
  
 export interface ShopHeaderProps {};
@@ -9,6 +9,13 @@ export interface ShopHeaderAction {
     type: string,
     payload: {
         count: number
-        links: Array<{url: string}>
+        prodTypes: Array<ProductType>
     }
+};
+
+export interface ProductType {
+    description: string,
+    id: number,
+    image: string,
+    name: string
 };

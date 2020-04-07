@@ -5,7 +5,7 @@ import {
     INCREMENT, 
     DECREMENT,
 } from '../actions/types';
-import { addIncrement, addDecrement, addAddMenuLink } from '../reducers';
+import { addIncrement, addDecrement } from '../reducers';
 
 import store from '../store';
 

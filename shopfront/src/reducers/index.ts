@@ -9,13 +9,14 @@ import {
 import {
     ShopHeaderState,
     ShopHeaderProps,
-    ShopHeaderAction
+    ShopHeaderAction,
+    ProductType
 } from '../types';
 
 let defaultHeader: ShopHeaderState = {
     count: 0,
-    links: []
-}
+    prodTypes: []
+};
 
 export default function rootReducer(state = <ShopHeaderState|undefined>defaultHeader, action: ShopHeaderAction): ShopHeaderState {
     // Make sure the state is defined to avoid compiler errors
@@ -26,7 +27,7 @@ export default function rootReducer(state = <ShopHeaderState|undefined>defaultHe
     // Act based on the action type
     switch(action.type) {
         case ADD_MENU_LINKS:
-            state.links = action.payload.links;
+            state.prodTypes = action.payload.prodTypes;
             break;
         case INCREMENT:
             state.count++;
@@ -49,11 +50,12 @@ export function addDecrement(): ShopHeaderAction {
     return { type: DECREMENT, payload: defaultHeader };
 };
 
-export function addAddMenuLink( link: string ) {
+export function addProductTypes( prodTypes: Array<ProductType> ) {
     return {
         type: ADD_MENU_LINKS,
         payload: {
-            links: [link]
+            count: prodTypes.length,
+            prodTypes: prodTypes
         }
     };
 }
