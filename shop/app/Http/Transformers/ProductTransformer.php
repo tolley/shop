@@ -14,6 +14,7 @@ class ProductTransformer extends Fractal\TransformerAbstract
             'name'        => $product->name,
             'description' => $product->description,
             'type'        => $product->type,
+            'price'       => $product->price,
             'thumbnail'   => $product->thumbnail,
             'active'      => $product->active
         ];

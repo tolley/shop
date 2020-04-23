@@ -51,4 +51,15 @@ class ProductFilter extends Filter
     {
         return $this->builder->where('active', '=', $active);
     }
+
+    /**
+     * Filter the products by type
+     * 
+     * @param   int|null $type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function type(int $type = null)
+    {
+        return $this->builder->where('type', '=', $type);
+    }
 }
