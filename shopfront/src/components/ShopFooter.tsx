@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-import { ShopHeaderAction } from '../types';
-import {
-    ADD_MENU_LINKS,
-    INCREMENT, 
-    DECREMENT,
-} from '../actions/types';
-import { addIncrement, addDecrement } from '../reducers';
-
-import store from '../store';
 
 // The state and props for the ShopFooter component
 type ShopFooterProps = {};
@@ -18,18 +9,7 @@ export default class ShopFooter
 
     render() {
         return (
-            <div id="shopFooter">
-                <button onClick={this.increment}>Increment</button>
-                <button onClick={this.decrement}>Decrement</button>
-            </div>
+            <div id="shopFooter" />
         );
-    }
-
-    increment() {
-        store.dispatch(addIncrement());
-    }
-
-    decrement() {
-        store.dispatch(addDecrement());
     }
 }

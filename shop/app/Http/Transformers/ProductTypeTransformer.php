@@ -11,7 +11,8 @@ class ProductTypeTransformer extends Fractal\TransformerAbstract
     {
         return [
             'id'          => $productType->id,
-            'name'        => $productType->prettyName,
+            'name'        => $productType->name,
+            'prettyName'  => $productType->prettyName,
             'description' => $productType->description,
             'image'       => $productType->default_thumbnail
         ];

@@ -1,71 +1,79 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import React, { Component } from 'react';
-import { ShopHeaderState, ShopHeaderProps, ShopHeaderAction, ProductType } from '../types';
+import { ShopHeaderState, ShopHeaderProps } from '../types';
+import CartHeader from './CartHeader'
 import store from '../store';
-import { addProductTypes } from '../reducers';
+import { addProductTypes } from '../reducers/ShopHeaderReducer';
 import fetch from 'node-fetch';
 
 export default class ShopHeader 
    extends Component<ShopHeaderProps, ShopHeaderState> {
 
-   constructor(props:ShopHeaderProps) {
-      super(props);
+      // The url used to make product type API requests
+      private productTypeUrl:string = 'http://shopv2.com/api/producttype';
 
-      // Default state
-      this.state = {
-         count: 0,
-         prodTypes: []
-      };
+      // The url used to make product API requests
+      private productsUrl:string = 'http://shopv2.com/api/product';
 
-      let storeState = store.getState();
+      constructor(props:ShopHeaderProps) {
+         super(props);
 
-      // Set up our update of the count variable from the store
-      store.subscribe(() => {
-         this.setState({
-            count: storeState.count,
-            prodTypes: storeState.prodTypes
+         // Default state
+         this.state = {
+            count: 0,
+            prodTypes: []
+         };
+
+         // Set up our update of the count variable from the store
+         store.subscribe(() => {
+            var state:ShopHeaderState = store.getState().shopHeader;
+            this.setState({
+               count: state.count? state.count: 0,
+               prodTypes: state.prodTypes? state.prodTypes: []
+            });
          });
-      });
-   }
-
-   componentDidMount() {
-      // Test call to the product types end point
-      fetch('http://shopv2.com/api/producttype')
-         .then( res => res.json() )
-         .then( json => store.dispatch(addProductTypes(json.data)));
-   }
-
-   render() {
-      return (
-         <span>
-            <Navbar expand="lg">
-               <Navbar.Brand href="#home">Retro Shop</Navbar.Brand>
-               <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="mr-auto">
-                     {this.state.prodTypes.map( (pt, i) => (
-                        <Nav.Link key={i} href={"#/"+pt.name.toLowerCase()}>
-                           {pt.name}
-                        </Nav.Link>
-                      ) ) }
-                  </Nav>
-               </Navbar.Collapse>
-
-               <Navbar.Text>
-                  Count: {this.state.count}
-               </Navbar.Text>
-               <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            </Navbar>
-         </span>
-      );
-   }
-
-   mapStateToProps(state:ShopHeaderState) {
-      if( this.state.count ) {
-         this.setState({count: state.count});
       }
 
-      if( this.state.prodTypes ) {
-         this.setState({prodTypes: state.prodTypes});
+      componentDidMount() {
+         // The product types aren't mounting into the menu
+         fetch(this.productTypeUrl)
+            .then( res => res.json() )
+            .then( (json) => {
+               store.dispatch(addProductTypes(json.data))
+            });
       }
-   }
+
+      render() {
+         return (
+            <span>
+               <Navbar expand="lg">
+                  <Navbar.Brand href="/">Retro Shop</Navbar.Brand>
+                  <Navbar.Collapse id="basic-navbar-nav">
+                     <Nav className="mr-auto">
+                        {this.state.prodTypes.map( (pt, i) => (
+                           <Nav.Link key={i} href={"/showroom/"+pt.name.toLowerCase()}>
+                              {pt.prettyName}
+                           </Nav.Link>
+                        ) ) }
+                     </Nav>
+                  </Navbar.Collapse>
+
+                  <Navbar.Text>
+                     <CartHeader />
+                  </Navbar.Text>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+               </Navbar>
+            </span>
+         );
+      }
+
+      mapStoreToState(state:ShopHeaderState) {
+         if( this.state.count ) {
+            this.setState({count: state.count});
+         }
+
+         if( this.state.prodTypes ) {
+            this.setState({prodTypes: state.prodTypes});
+         }
+      }
 }

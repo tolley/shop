@@ -1,4 +1,5 @@
-// The actions that the reducer will use
-export const INCREMENT      = 'INCREMENT';
-export const DECREMENT      = 'DECREMENT';
+// ShopHeader
 export const ADD_MENU_LINKS = 'ADD_MENU_LINKS';
+
+// CartHeader
+export const CART_ADD = 'CART_ADD';
