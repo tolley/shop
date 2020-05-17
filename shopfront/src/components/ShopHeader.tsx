@@ -8,12 +8,11 @@ import fetch from 'node-fetch';
 
 export default class ShopHeader 
    extends Component<ShopHeaderProps, ShopHeaderState> {
-
       // The url used to make product type API requests
-      private productTypeUrl:string = 'http://shopv2.com/api/producttype';
+      private productTypeUrl:string = 'http://' + process.env['REACT_APP_PUBLIC_URL'] + '/api/producttype';
 
       // The url used to make product API requests
-      private productsUrl:string = 'http://shopv2.com/api/product';
+      private productsUrl:string = 'http://' + process.env['REACT_APP_PUBLIC_URL'] + '/api/product';
 
       constructor(props:ShopHeaderProps) {
          super(props);
