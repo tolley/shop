@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import { ProductType, ShopHeaderState } from '../types';
+import { ProductType } from '../types';
+import { ShopHeaderState } from '../actions/ShopHeaderActions';
 import { RouteComponentProps } from 'react-router-dom';
 import store from '../store';
-import { addProductTypes } from '../reducers/ShopHeaderReducer';
 
 interface ProductShowroomParams {
     productType: string

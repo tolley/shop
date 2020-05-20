@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 
 import { Product } from '../types';
+import { CartHeaderState } from '../actions/CartHeaderActions';
 // import store from '../store';
 
 type CartHeaderProps = {};
-
-type CartHeaderState = {
-    items: Array<Product>,
-    totalPrice: number
-};
 
 export default class CartHeader extends Component<CartHeaderProps, CartHeaderState> {
     constructor(props: CartHeaderProps) {

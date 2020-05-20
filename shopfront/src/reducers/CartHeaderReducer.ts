@@ -1,24 +1,28 @@
-import { CART_ADD } from '../actions/types';
-
 import {
-    CartHeaderState,
-    CartHeaderAction
-} from '../types';
+    CartHeaderAction,
+    CartHeaderState }
+ from '../actions/CartHeaderActions';
 
-let defaultHeaderState: CartHeaderState = {
-    totalPrice: 0,
-    items: [],
-}
+import { Product } from '../types';
 
 export function CartHeaderReducer(state:CartHeaderState, action:CartHeaderAction): CartHeaderState {
+    // A default state if none was defined
     if(!state) {
-        return defaultHeaderState
+        state = {
+            items: [],
+            totalPrice: 0
+        }
     }
 
-    // Act based on the action type
+    // Switch based on the action's type
     switch(action.type) {
-        case CART_ADD:
-            state.items = action.payload.items;
+        case 'CART_ADD':
+            var totalPrice:number = action.payload.totalPrice + state.totalPrice;
+            return {
+                ...state, 
+                totalPrice: totalPrice,
+                items: action.payload.items,
+            };
             break;
     }
 

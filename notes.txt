@@ -1,3 +1,6 @@
 https://github.com/react-bootstrap/react-bootstrap-typescript
 
 http://maxstore.nicolethemes.com/
+
+// Redux reducers and typescript
+https://medium.com/@pie6k/better-way-to-create-type-safe-redux-actions-and-reducers-with-typescript-45386808c103

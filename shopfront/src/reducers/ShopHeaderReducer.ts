@@ -1,38 +1,28 @@
-import { ADD_MENU_LINKS } from '../actions/types';
+import { ProductType } from '../types';
 
 import {
-    ShopHeaderState,
     ShopHeaderAction,
-    ProductType
-} from '../types';
-
-let defaultHeader: ShopHeaderState = {
-    count: 0,
-    prodTypes: []
-};
+    ShopHeaderState }
+from '../actions/ShopHeaderActions';
 
 export function ShopHeaderReducer(state: ShopHeaderState, action: ShopHeaderAction): ShopHeaderState {
-    // Make sure the state is defined to avoid compiler errors
+    // A default state if none was defined
     if(!state) {
-        return defaultHeader;
+        state = {
+            count: 0,
+            prodTypes: []
+        }
     }
 
-    // Act based on the action type
+    // Switch based on the action's type
     switch(action.type) {
-        case ADD_MENU_LINKS:
-            state.prodTypes = action.payload.prodTypes;
-            break;
+        case 'ADD_MENU_LINKS':
+            return {
+                ...state, 
+                count: action.payload.prodTypes.length,
+                prodTypes: action.payload.prodTypes,
+            };
     }
 
     return state;
 };
-
-export function addProductTypes( prodTypes: Array<ProductType> = [] ) {
-    return {
-        type: ADD_MENU_LINKS,
-        payload: {
-            count: prodTypes.length,
-            prodTypes: prodTypes
-        }
-    };
-}

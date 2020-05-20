@@ -1,20 +1,19 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import React, { Component } from 'react';
-import { ShopHeaderState, ShopHeaderProps } from '../types';
+import { ShopHeaderState, addProductTypes } from '../actions/ShopHeaderActions';
 import CartHeader from './CartHeader'
 import store from '../store';
-import { addProductTypes } from '../reducers/ShopHeaderReducer';
 import fetch from 'node-fetch';
 
 export default class ShopHeader 
-   extends Component<ShopHeaderProps, ShopHeaderState> {
+   extends Component<{}, ShopHeaderState> {
       // The url used to make product type API requests
       private productTypeUrl:string = 'http://' + process.env['REACT_APP_PUBLIC_URL'] + '/api/producttype';
 
       // The url used to make product API requests
       private productsUrl:string = 'http://' + process.env['REACT_APP_PUBLIC_URL'] + '/api/product';
 
-      constructor(props:ShopHeaderProps) {
+      constructor(props:{}) {
          super(props);
 
          // Default state
