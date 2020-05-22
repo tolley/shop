@@ -15,7 +15,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={ShopBody} />
-            <Route path="/showroom/:productType" component={ProductShowroom} />
+            <Route path="/showroom/:prodId" component={ProductShowroom} />
             </Switch>
         </BrowserRouter>
       <ShopFooter />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
-import { Product } from '../types';
 import { CartHeaderState } from '../actions/CartHeaderActions';
+
+// import { Product } from '../types';
 // import store from '../store';
 
 type CartHeaderProps = {};
@@ -32,11 +32,5 @@ export default class CartHeader extends Component<CartHeaderProps, CartHeaderSta
                 </div>
             </span>
         );
-    }
-
-    mapStoreToState(state:CartHeaderState) {
-        if(this.state.items) {
-            this.setState({items: this.state.items});
-        }        
     }
 }

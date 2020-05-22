@@ -3,8 +3,6 @@ import {
     CartHeaderState }
  from '../actions/CartHeaderActions';
 
-import { Product } from '../types';
-
 export function CartHeaderReducer(state:CartHeaderState, action:CartHeaderAction): CartHeaderState {
     // A default state if none was defined
     if(!state) {
@@ -23,7 +21,6 @@ export function CartHeaderReducer(state:CartHeaderState, action:CartHeaderAction
                 totalPrice: totalPrice,
                 items: action.payload.items,
             };
-            break;
     }
 
     return state;

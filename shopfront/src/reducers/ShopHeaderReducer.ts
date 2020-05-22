@@ -1,5 +1,3 @@
-import { ProductType } from '../types';
-
 import {
     ShopHeaderAction,
     ShopHeaderState }

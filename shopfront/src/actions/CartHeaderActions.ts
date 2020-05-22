@@ -13,14 +13,3 @@ export interface CartHeaderData {
 export type CartHeaderAction =
     { type: 'CART_ADD', payload: CartHeaderData };
     // | { type: 'OTHERACTION', payload: Other }
-
-
-// export function addProductTypes( prodTypes: Array<ProductType> = [] ): ShopHeaderState {
-//     return {
-//         type: 'ADD_MENU_LINKS',
-//         payload: {
-//             count: prodTypes.length,
-//             prodTypes: prodTypes
-//         }
-//     };
-// }

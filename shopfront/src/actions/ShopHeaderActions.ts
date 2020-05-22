@@ -12,10 +12,9 @@ export interface ShopHeaderData {
 
 export type ShopHeaderAction =
     { type: 'ADD_MENU_LINKS', payload: ShopHeaderData };
-    // | { type: 'OTHERACTION', payload: Other }
 
 
-export function addProductTypes( prodTypes: Array<ProductType> = [] ): ShopHeaderAction {
+export function addProductType( prodTypes: Array<ProductType> = [] ): ShopHeaderAction {
     let count:number = prodTypes.length;
     return {
         type: 'ADD_MENU_LINKS',
