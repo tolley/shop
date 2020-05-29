@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import { CartHeaderState } from '../actions/CartHeaderActions';
+import { CartState } from '../actions/CartActions';
 
 // import { Product } from '../types';
-// import store from '../store';
+import store from '../store';
 
-type CartHeaderProps = {};
+type CartProps = {};
 
-export default class CartHeader extends Component<CartHeaderProps, CartHeaderState> {
-    constructor(props: CartHeaderProps) {
+export default class CartHeader extends Component<CartProps, CartState> {
+    constructor(props: CartProps) {
         super(props);
 
         this.state = {
             items: [],
             totalPrice: 0
         };
+
+        // Set our product type from the store
+        store.subscribe(() => {
+            let state:CartState = store.getState().cart;
+            this.setState({items: state.items})
+            this.setState({totalPrice: state.totalPrice});
+        });
     }
 
     render() {
@@ -24,7 +31,7 @@ export default class CartHeader extends Component<CartHeaderProps, CartHeaderSta
                     
                 <div>
                     <span>
-                        <b>{this.state.totalPrice}</b> item(s)
+                        <b>{this.state.items.length}</b> item(s)
                     </span>
                     <span className="cartprice">
                         ${this.state.totalPrice}

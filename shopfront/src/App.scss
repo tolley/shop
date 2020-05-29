@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #342828;
   min-height: 100vh;
@@ -22,11 +11,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 .navbar {
   border-bottom: solid 1px #111;
@@ -49,4 +33,34 @@
     margin: 2px;
     text-align: left;
 }
+} }
+
+div.productShowroom {
+
+  div.productPanel {
+    width: 33%;
+    float: left;
+    margin: 0px 2px 5px 2px;
+    width: 350px;
+    text-align: left;
+
+    div.panel-heading {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+
+      span.cart {
+        float: right;
+        border: solid 1px #f00;
+      }
+    }
+  }
+}
+
+button.addToCartCtrl {
+  float: right;
+  font-size: 12px;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
 }

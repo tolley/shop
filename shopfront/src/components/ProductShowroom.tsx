@@ -70,6 +70,31 @@ export default class ProductShowroom extends Component<ProductShowroomProps, Pro
     }
 
     componentDidMount() {
+        this.loadData();
+    }
+
+    componentDidUpdate(prevProps:ProductShowroomProps) {
+        // If the url changed
+        if(prevProps.match.params.prodId !== this.props.match.params.prodId) {
+            this.loadData();
+        }
+    }
+
+
+    render() {
+        return (
+            <div className="container productShowroom">
+                {this.state.products.map((product) => {
+                    return (
+                        <ProductComp product={product} key={product.id} />
+                    )
+                })}
+            </div>
+        );
+    }
+
+    // A method to load the data that this component needs to render
+    private loadData() {
         let productUrl: string = this.productUrl + '?type=' 
             + this.props.match.params.prodId;
 
@@ -78,19 +103,5 @@ export default class ProductShowroom extends Component<ProductShowroomProps, Pro
            .then( (json) => {
                 store.dispatch(loadProducts(json.data))
            });
-     }
-
-    render() {
-        return (
-            <span>
-                <b>{this.state.prodType.prettyName}</b>
-                <br />
-                {this.state.products.map((product) => {
-                    return (
-                        <ProductComp product={product} />
-                    )
-                })}
-            </span>
-        );
     }
 }

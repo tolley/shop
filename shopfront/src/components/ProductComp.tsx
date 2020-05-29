@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import AddToCartCtrl from './AddToCartCtrl'; 
 import { Product } from '../types';
 
 // The state and props for the ShopFooter component
@@ -12,11 +13,15 @@ export default class ProductComp extends Component<ProductCompProps, ProductComp
 
     render() {
         return (
-            <span>
-                <h1>{this.props.product.name}</h1>
-                <br />
-                <p>{this.props.product.description}</p>
-            </span>
+            <div className="panel panel-info productPanel">
+                <div className="panel panel-heading">
+                    {this.props.product.name}
+                    <AddToCartCtrl product={this.props.product} />
+                </div>
+                <div className="panel-body">
+                    {this.props.product.description}
+                </div>
+            </div>
         );
     }
 }

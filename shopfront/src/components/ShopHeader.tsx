@@ -30,7 +30,6 @@ export default class ShopHeader
       }
 
       componentDidMount() {
-         // The product types aren't mounting into the menu
          fetch(this.productTypeUrl)
             .then( res => res.json() )
             .then( (json) => {
@@ -46,7 +45,7 @@ export default class ShopHeader
                   <Navbar.Collapse id="basic-navbar-nav">
                      <Nav className="mr-auto">
                         {this.state.prodTypes.map( (pt, i) => (
-                           <Nav.Link key={i} href={"/showroom/"+pt.id}>
+                           <Nav.Link key={i} href={"/#/showroom/"+pt.id}>
                               {pt.prettyName}
                            </Nav.Link>
                         ) ) }

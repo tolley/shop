@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import './bootstrap.min.css';
 
 import ShopHeader from './components/ShopHeader'
@@ -12,12 +12,12 @@ function App() {
   return (
     <div className="App">
       <ShopHeader />
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
             <Route path="/" exact component={ShopBody} />
             <Route path="/showroom/:prodId" component={ProductShowroom} />
-            </Switch>
-        </BrowserRouter>
+          </Switch>
+        </HashRouter>
       <ShopFooter />
     </div>
   );
