@@ -2,7 +2,8 @@ import { Product } from '../types';
 
 export interface CartState {
     items: Array<Product>,
-    totalPrice: number
+    totalPrice: number,
+    showSummary?: boolean
 };
 
 export interface CartData {
@@ -11,7 +12,7 @@ export interface CartData {
 
 export type CartAction =
     { type: 'CART_ADD', payload: CartData } |
-    { type: 'CART_REMOVE', payload: CartData };
+    { type: 'CART_REMOVE', payload: number };
 
 // Adds product to the shopping cart
 export function addToCart(product:Product): CartAction {
@@ -25,11 +26,9 @@ export function addToCart(product:Product): CartAction {
 
 // Removes product from the shopping cart, assuming it's in the cart
 // If it's not in the cart, the current state is returned unchanged
-export function removeFromCart(product:Product): CartAction {
+export function removeFromCart(cartPos:number): CartAction {
     return {
         type: 'CART_REMOVE',
-        payload: {
-            items: [product]
-        }
+        payload: cartPos
     };
 }
